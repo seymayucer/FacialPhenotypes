@@ -1,5 +1,5 @@
 # RacialPhenotypesFR
-Face Verification and Identification Test Code for Racial Phenotype Evaluation on RFW and VGGFace2
+Face Verification and Identification Test Code for the study Understanding Racial Bias using Facial Phenotypes.
 
 
 ## Getting started
@@ -11,39 +11,40 @@ To start working, you will need to install the following packages:
 - thundersvm
 - logging
 - cv2
-- numpy
-- pandas
-- sklearn
-- tqdm
-- pathlib
 
-or you can install all using pip or conda: ` pip install -r setup/requirements.txt `
+Or you can install all using pip or conda: ` pip install -r setup/requirements.txt `.
 
-## Data Preparation
-To test face verification and identification you need to align images to 112. To test atribute classifier you need to aligne images to 224.
 
-~~~
-python preprocess/face_align.py --data_dir /path/to/dataset --output_dir /path/to/destination/vggface2_train_224_aligned/ --landmark_file '/path/to/VGGFace2/bb_landmark/loose_landmark_train.csv'
-~~~ 
 ## Reproducing experiment results
 
 Take the following steps to reproduce the performance reported in the paper:
 
-1- For both task, images should be aligned to 112x112.
 
-2- For face verification please install RFW from offical website.
-~~~
-python face_verification.py --data_dir path/to/rfw/aligned/ --model_dir ./model/Iter_021000_net.ckpt --pair_file ./test_assets/pairs/AttributePairs/eye_narrow_pairs_6000_selected.csv 
-~~~
+1- For face verification, please install [RFW dataset](http://www.whdeng.cn/RFW/testing.html). For face identification [VGGFace 2](https://drive.google.com/file/d/1jdZw6ZmB7JRK6RS6QP3YEr2sufJ5ibtO/view) 
 
+2- For both tasks, images should be aligned to 112x112. Align images using preprocess/face_align.py
 
 ~~~
-python face_identification.py --data_dir  path/to/vgg/aligned/ --model_dir model/Iter_021000_net.ckpt --img_list_file AttributeLabels/test_list.txt 
+python preprocess/face_align.py --data_dir /path/to/dataset --output_dir /path/to/destination/vggface2_train_224_aligned/ --landmark_file '/path/to/VGGFace2/bb_landmark/loose_landmark_train.csv'
+~~~ 
+
+3- To download pre-trained models and labels please visit [here](https://collections.durham.ac.uk/collections/r2x633f102r). After installation, please put model.ckpt to model/ folder and put FDA files to test_assets/ folder.
+
+
+4- Face verification test:
+
+~~~
+python face_verification.py --data_dir path/to/rfw/aligned/ --model_dir ./model/model.ckpt --pair_file ./test_assets/pairs/AttributePairs/eye_narrow_pairs_6000_selected.csv 
+~~~
+
+5- Face identification test:
+~~~
+python face_identification.py --data_dir  path/to/vgg/aligned/ --model_dir ./model/model.ckpt --img_list_file AttributeLabels/test_list.txt 
 ~~~
 
 ## Attribute Labels
 
-Attribute categorization is presented in the below.
+Attribute categorization is presented below.
 
 | **Attribute**  | **Categories**               |
 |---------------------|-------------------------------------|
@@ -57,9 +58,6 @@ Attribute categorization is presented in the below.
 The distribution of race-relavent phenotype attributes of [RFW](https://github.com/seymayucer/RacialPhenotypesFREvaluation/blob/main/figures/rfw-phenotype-dist.pdf) and [VGGFace2 test](https://github.com/seymayucer/RacialPhenotypesFREvaluation/blob/main/figures/vggtest-phenotype-dist.pdf) datasets.
 
 
-## Results
+## Reference
 
-
-
-## References
-
+Understanding Racial Bias using Facial Phenotypes
