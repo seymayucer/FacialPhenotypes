@@ -12,7 +12,7 @@ import tqdm
 import argparse
 from pathlib import Path
 
-import cbam
+import model
 from torch.nn import DataParallel
 import torch.utils.data
 from sklearn.model_selection import StratifiedKFold
@@ -32,7 +32,7 @@ class FaceVerification:
 
     def load_model(self, feature_dim, model_dir=None):
         logging.info('Model Loading')
-        net = cbam.CBAMResNet(100, feature_dim=feature_dim, mode='ir')
+        net = model.CBAMResNet(100, feature_dim=feature_dim, mode='ir')
         self.device = torch.device(
             'cuda' if torch.cuda.is_available() else 'cpu')
         net.load_state_dict(torch.load(model_dir)['net_state_dict'])
@@ -221,7 +221,7 @@ if __name__ == '__main__':
     parser.add_argument('--model_dir',
                         type=str,
                         default='/model/',
-                        help='lfw image root')
+                        help='pre-trained model directory')
     args = parser.parse_args()
 
     validation = FaceVerification(batch_size=16,
@@ -229,7 +229,7 @@ if __name__ == '__main__':
                                   data_dir=args.data_dir)
 
     validation.load_model(feature_dim=512,
-                          model_dir='model/Iter_021000_net.ckpt')
+                          model_dir=args.model_dir)
     _, _, _shape = validation.load_images(args.pair_file)
     tpr, fpr, acc, std = validation.verify()
     logging.info('Testing Accuracy {} for {} in shape {}'.format(

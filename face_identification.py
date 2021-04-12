@@ -10,7 +10,7 @@ import pandas as pd
 from tqdm import tqdm
 
 import argparse
-import cbam
+import model
 from pathlib import Path
 from torch.nn import DataParallel
 import torch.utils.data
@@ -39,7 +39,7 @@ class FaceIdentification:
 
     def load_model(self, feature_dim, model_dir=None):
         logging.info('Model Loading')
-        net = cbam.CBAMResNet(100, feature_dim=feature_dim, mode='ir')
+        net = model.CBAMResNet(100, feature_dim=feature_dim, mode='ir')
         self.device = torch.device(
             'cuda' if torch.cuda.is_available() else 'cpu')
         net.load_state_dict(torch.load(model_dir)['net_state_dict'])

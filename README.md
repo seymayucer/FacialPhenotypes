@@ -1,5 +1,5 @@
 # RacialPhenotypesFR
-Face Verification and Identification Test Code for the study Understanding Racial Bias using Facial Phenotypes.
+Face Verification and Identification Test Code for the study: Understanding Racial Bias using Facial Phenotypes.
 
 
 ## Getting started
@@ -34,7 +34,8 @@ python preprocess/face_align.py --data_dir /path/to/dataset --output_dir /path/t
 4- Face verification test:
 
 ~~~
-python face_verification.py --data_dir path/to/rfw/aligned/ --model_dir ./model/model.ckpt --pair_file ./test_assets/pairs/AttributePairs/eye_narrow_pairs_6000_selected.csv 
+python face_verification.py --data_dir path/to/rfw/aligned/ --model_dir ./model/model.ckpt --pair_file ./test_assets/pairs/AttributePairs/eye_monolid_pairs_6000_selected.csv 
+
 ~~~
 
 5- Face identification test:
@@ -60,4 +61,4 @@ The distribution of race-relavent phenotype attributes of [RFW](https://github.c
 
 ## Reference
 
-Understanding Racial Bias using Facial Phenotypes
+https://github.com/wujiyang/Face_Pytorch 

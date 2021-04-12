@@ -278,9 +278,9 @@ class CBAMResNet(nn.Module):
 
         return x
 
-if __name__ == '__main__':
-    input = torch.Tensor(2, 3, 112, 112)
-    net = CBAMResNet(50, mode='ir')
+# if __name__ == '__main__':
+#     input = torch.Tensor(2, 3, 112, 112)
+#     net = CBAMResNet(50, mode='ir')
 
-    out = net(input)
-    print(out.shape)
+#     out = net(input)
+#     print(out.shape)
