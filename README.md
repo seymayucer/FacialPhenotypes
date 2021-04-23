@@ -28,7 +28,7 @@ Take the following steps to reproduce the performance reported in the paper:
 python preprocess/face_align.py --data_dir /path/to/dataset --output_dir /path/to/destination/vggface2_train_224_aligned/ --landmark_file '/path/to/VGGFace2/bb_landmark/loose_landmark_train.csv'
 ~~~ 
 
-3- To download pre-trained models and labels please visit [here](https://collections.durham.ac.uk/collections/r2x633f102r). After installation, please put model.ckpt to model/ folder and put FDA files to test_assets/ folder.
+3- To download pre-trained models and labels please visit [here](http://doi.org/10.15128/r2hm50tr746). After installation, please put model.ckpt to model/ folder and put FDA files to test_assets/ folder.
 
 4- Face verification test:
 
