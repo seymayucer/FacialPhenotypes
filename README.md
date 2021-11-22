@@ -1,8 +1,11 @@
-# RacialPhenotypesFR
+# Measuring Hidden Bias within Face Recognition via Racial Phenotype
 Face Verification and Identification Test Code for the study: Understanding Racial Bias using Facial Phenotypes.
 
+### Abstract
 
-## Getting started
+Recent work reports disparate performance for intersectional racial groups across face recognition tasks: face verification and identification. However, the definition of those racial groups has a significant impact on the underlying findings of such racial bias analysis. Previous studies define these groups based on either demographic information (e.g. African, Asian etc.) or skin tone (e.g. lighter or darker skins). The use of such sensitive or broad group definitions has disadvantages for bias investigation and subsequent counter-bias solutions design. By contrast, this study introduces an alternative racial bias analysis methodology via facial phenotype attributes for face recognition. We use the set of observable characteristics of an individual face where a race-related facial phenotype is hence specific to the human face and correlated to the racial profile of the subject. We propose categorical test cases to investigate the individual influence of those attributes on bias within face recognition tasks. We compare our phenotype-based grouping methodology with previous grouping strategies and show that phenotype-based groupings uncover hidden bias without reliance upon any potentially protected attributes or ill-defined grouping strategies. Furthermore, we contribute corresponding phenotype attribute category labels for two face recognition tasks: RFW for face verification and VGGFace2 (test set) for face identification.
+
+## Installation
 
 
 To start working, you will need to install the following packages:
@@ -50,7 +53,7 @@ Attribute categorization is presented below.
 | **Skin Type**  | Type 1 / 2 / 3 / 4 / 5 / 6          |
 | **Eye Shape**  | Monolid / Other                     |
 | **Nose Shape** | Wide / Narrow                       |
-| **Lip Shape**  | Big / Small                         |
+| **Lip Shape**  | Full / Small                         |
 | **Hair Type**  | Straight / Wavy / Curly / Bald      |
 | **Hair Color** | Red / Blonde / Brown / Black / Gray |
 
@@ -58,5 +61,22 @@ The distribution of race-relavent phenotype attributes of [RFW](https://github.c
 
 
 ## References
+If you are making use of this work in any way (including our pre-trained models or datasets), you must please reference the following articles in any report, publication, presentation, software release or any other associated materials:
 
-https://github.com/wujiyang/Face_Pytorch 
+```
+@InProceedings{yucermeasuring,
+  author = {Yucer, S. and Tektas, F. and Al Moubayed, N. and Breckon, T.P.},
+  title = {Measuring Hidden Bias within Face Recognition via Racial Phenotypes},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  year={2022},
+  publisher = {IEEE},
+  url = {https://breckon.org/toby/publications/papers/yucer22phenotypes.pdf},
+  arxiv = {http://arxiv.org/abs/2110.09839},
+}
+```
+
+
+[Measuring Hidden Bias within Face Recognition via Racial Phenotypes](https://breckon.org/toby/publications/papers/yucer22phenotypes.pdf)
+(Yucer, Tektas, Al Moubayed, Breckon), IEEE/CVF Winter Conference on Applications of Computer Vision,  2022.
+
+
