@@ -57,7 +57,11 @@ python face_align_tight.py --dataset_name VGGFace2 --data_dir datasets/VGGFace2/
 python face_verification_mxnet.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/AttributePairs/setup1/skintype_type1_6000.csv --batch_size 32
 ~~~
 
-<!-- #### Cross Attribute-based Face Verification:
+#### Cross Attribute-based Face Verification:
+
+~~~
+python cross_atribute_verification.py --input_predictions test_assets/AttributeCrossPairs/skintype_type2.csv --dist_name 'vgg_dist' --output_path test_assets/AttributeCrossPairs
+~~~
 
 
 <!-- python face_verification.py --data_dir path/to/rfw/aligned/ --model_dir ./model/model.ckpt --pair_file ./test_assets/pairs/AttributePairs/eye_monolid_pairs_6000_selected.csv  -->
