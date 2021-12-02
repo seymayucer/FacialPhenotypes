@@ -28,7 +28,7 @@ Facial phenotype attributes and their categorisation.
 
 To start working with this project you will need to take the following steps:
 
-- Install Python packages using `pip install -r setup/requirements.txt`
+- Install Python packages using `conda env create --file environment.yaml`
 
 - For face verification, please install [RFW dataset](http://www.whdeng.cn/RFW/testing.html) and for face identification [VGGFace 2.](https://drive.google.com/file/d/1jdZw6ZmB7JRK6RS6QP3YEr2sufJ5ibtO/view) 
 
