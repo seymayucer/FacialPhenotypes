@@ -44,13 +44,16 @@ def split_positive_negative(data, dist_name):
         negative_matches: Impostor matches
         negative_scores: Scores corresponding to impostor matches
     """
-    pos = data[data["Class_ID_s1"] == data["Class_ID_s2"]]
+    pos = data[data["issame"]]
+    # import pdb
+
+    # pdb.set_trace()
     positive_scores = list(pos[dist_name].values)
     positive_matches = pos[
         ["Class_ID_s1", "img_id_s1", "Class_ID_s2", "img_id_s2"]
     ].values
 
-    neg = data[data["Class_ID_s1"] != data["Class_ID_s2"]]
+    neg = data[~data["issame"]]
     negative_scores = list(neg[dist_name].values)
     negative_matches = neg[
         ["Class_ID_s1", "img_id_s1", "Class_ID_s2", "img_id_s2"]
@@ -178,11 +181,14 @@ if __name__ == "__main__":
             raise
 
     print("Loading submitted scores...")
-    data = pd.read_csv(args.input_predictions)  # we have that
-    data["issame"] = (data["Class_ID_s1"] == data["Class_ID_s2"]).values
+    data = pd.read_parquet(args.input_predictions)  # we have that
     # import pdb
 
     # pdb.set_trace()
+    data["issame"] = (
+        data["Class_ID_s1"].astype("str") == data["Class_ID_s2"].astype("str")
+    ).values
+
     print("Calculating bias and accuracy...")
     ###RUN EVALUATION
 

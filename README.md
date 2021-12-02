@@ -68,7 +68,7 @@ python cross_atribute_verification.py --input_predictions test_assets/AttributeC
 <!-- #### Subgroup-based Face Verification:
 
 
-python face_verification_mxnet.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/SubgroupPairs/meta_skin-0_lips-big_eye-other_nose-narrow_hairtype-straight_00102_20k_selected.csv --batch_size 32 --> -->
+python face_verification_mxnet.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/SubgroupPairs/meta_skin-0_lips-big_eye-other_nose-narrow_hairtype-straight_00102_20k_selected.csv --batch_size 32 --> 
 
 #### Face identification test:
 ~~~

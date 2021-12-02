@@ -1,7 +1,7 @@
 # bin/bash
 
 # yourfilenames=`ls /mnt/SSD/FacialPhenotypes/validation/selected_pairs/*.csv`
-yourfilenames='ls test_assets/AttributeCrossPairs/*.csv'
+yourfilenames='ls test_assets/AttributeCrossPairs/*.pq'
 # #yourfilenames=`ls /mnt/SSD/FacialPhenotypes/validation/unique_pairs/bupt/easiest-type3.csv`
 
 for eachfile in $yourfilenames
