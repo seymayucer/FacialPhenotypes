@@ -1,8 +1,7 @@
 ## Measuring Hidden Bias within Face Recognition via Racial Phenotype
 
 <a name="Paper" class="btn btn-outline-warning mr-2" href="https://arxiv.org/pdf/2110.09839.pdf">Paper</a> -
-<a name="Poster"  class="btn btn-outline-warning mr-2" href="/assets/pdfs/391_poster.pdf">Poster</a> -
-<a name="Code"  class="btn btn-outline-warning mr-2" href="https://github.com/seymayucer/FacialPhenotypes">Code</a> -
+<a name="Poster"  class="btn btn-outline-warning mr-2" href="/figures/pdfs/391_poster.pdf">Poster</a> -
 <a name="Video"  class="btn btn-outline-warning mr-2" href="https://youtu.be/78OsQ_stkL4">Video</a> -
 <a name="Dataset"  class="btn btn-outline-warning mr-2" href="https://collections.durham.ac.uk/files/r2hm50tr746">Dataset</a>
 
@@ -18,7 +17,7 @@ We propose using race-related facial (phenotype) characteristics within face rec
 
 
 
-![alt text](/figures/phenotype_photos.png)
+![alt text](https://github.com/seymayucer/FacialPhenotypes/blob/main/figures/phenotype_photos.svg)
 
 
 Facial phenotype attributes and their categorisation.
@@ -58,14 +57,14 @@ python face_align_tight.py --dataset_name VGGFace2 --data_dir datasets/VGGFace2/
 python face_verification_mxnet.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/AttributePairs/setup1/skintype_type1_6000.csv --batch_size 32
 ~~~
 
-#### Cross Attribute-based Face Verification:
+<!-- #### Cross Attribute-based Face Verification:
 
 
 <!-- python face_verification.py --data_dir path/to/rfw/aligned/ --model_dir ./model/model.ckpt --pair_file ./test_assets/pairs/AttributePairs/eye_monolid_pairs_6000_selected.csv  -->
-#### Subgroup-based Face Verification:
+<!-- #### Subgroup-based Face Verification:
 
 
-python face_verification_mxnet.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/SubgroupPairs/meta_skin-0_lips-big_eye-other_nose-narrow_hairtype-straight_00102_20k_selected.csv --batch_size 32
+python face_verification_mxnet.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/SubgroupPairs/meta_skin-0_lips-big_eye-other_nose-narrow_hairtype-straight_00102_20k_selected.csv --batch_size 32 --> -->
 
 #### Face identification test:
 ~~~
