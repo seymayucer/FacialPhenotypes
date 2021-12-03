@@ -1,7 +1,7 @@
 ## Measuring Hidden Bias within Face Recognition via Racial Phenotype
 
 <a name="Paper" class="btn btn-outline-warning mr-2" href="https://arxiv.org/pdf/2110.09839.pdf">Paper</a> -
-<a name="Poster"  class="btn btn-outline-warning mr-2" href="/figures/pdfs/391_poster.pdf">Poster</a> -
+<a name="Poster"  class="btn btn-outline-warning mr-2" href="https://seymayucer.github.io/assets/pdfs/391_poster.pdf">Poster</a> -
 <a name="Video"  class="btn btn-outline-warning mr-2" href="https://youtu.be/78OsQ_stkL4">Video</a> -
 <a name="Dataset"  class="btn btn-outline-warning mr-2" href="https://collections.durham.ac.uk/files/r2hm50tr746">Dataset</a>
 
