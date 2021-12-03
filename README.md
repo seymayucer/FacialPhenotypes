@@ -17,7 +17,7 @@ We propose using race-related facial (phenotype) characteristics within face rec
 
 
 
-![alt text](https://github.com/seymayucer/FacialPhenotypes/blob/main/figures/phenotype_photos.svg)
+![alt text](https://github.com/seymayucer/FacialPhenotypes/blob/main/figures/phenotype_photos.png)
 
 
 Facial phenotype attributes and their categorisation.
