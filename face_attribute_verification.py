@@ -1,33 +1,18 @@
-"""
-December 22 2020
-syucer
-
-"""
-
-
-import os
 import argparse
-import sys
 import numpy as np
-from scipy import misc
 from sklearn.model_selection import StratifiedKFold
-from scipy import interpolate
 import sklearn
 import cv2
-import math
 import datetime
-import pickle
-from sklearn.decomposition import PCA
 import mxnet as mx
 from mxnet import ndarray as nd
 import pandas as pd
 from numpy import linalg as line
-from scipy import spatial
-from pathlib import Path
 import logging
-import time
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    format="%(asctime)s %(message)s", datefmt="%m/%d/%Y %I:%M:%S %p", level=logging.INFO
+)
 
 
 class FaceVerification:

@@ -9,6 +9,12 @@ import numpy as np
 import pandas as pd
 import errno
 import argparse
+from pathlib import Path
+import logging
+
+logging.basicConfig(
+    format="%(asctime)s %(message)s", datefmt="%m/%d/%Y %I:%M:%S %p", level=logging.INFO
+)
 
 
 def calculate_accuracy(threshold, dist, actual_issame):
@@ -45,9 +51,6 @@ def split_positive_negative(data, dist_name):
         negative_scores: Scores corresponding to impostor matches
     """
     pos = data[data["issame"]]
-    # import pdb
-
-    # pdb.set_trace()
     positive_scores = list(pos[dist_name].values)
     positive_matches = pos[
         ["Class_ID_s1", "img_id_s1", "Class_ID_s2", "img_id_s2"]
@@ -139,10 +142,11 @@ def evaluation_metrics(data, output_path, dist_name):
         "best threshold",
         optimal_threshold,
     )
-    from pathlib import Path
 
     filep = open(Path(output_path) / "vgg_covariance_matrix_results.log", "a+")
-    data["unique_cat"] = data["category1"] + "_" + data["category2"]
+    data["unique_cat"] = (
+        data["category1"].astype("str") + "_" + data["category2"].astype("str")
+    )
     for i, category_pairs in data.groupby(["unique_cat"]):
 
         # For negative samples, the ROC curve shows TNR @ FNR. To calculate this with code designed for TPR @ FPR it's necessary to
@@ -155,7 +159,11 @@ def evaluation_metrics(data, output_path, dist_name):
             category_pairs.issame.values,
         )
 
-        print("tpr, fpr, fnr,acc\n", tpr, fpr, fnr, acc, category_pairs.issame.sum())
+        logging.info(
+            "tpr:{} - fpr:{} - fnr:{}- acc:{}\n".format(
+                tpr, fpr, fnr, acc, category_pairs.issame.sum()
+            )
+        )
         filep.write(
             f"{category_pairs.category1.unique()[0]} {category_pairs.category2.unique()[0]} {acc} {tpr} {fpr} {fnr} {tnr}\n"
         )
@@ -180,21 +188,12 @@ if __name__ == "__main__":
         if exception.errno != errno.EEXIST:
             raise
 
-    print("Loading submitted scores...")
+    logging.info("Loading distance scores.")
     data = pd.read_parquet(args.input_predictions)  # we have that
-    # import pdb
-
-    # pdb.set_trace()
     data["issame"] = (
         data["Class_ID_s1"].astype("str") == data["Class_ID_s2"].astype("str")
     ).values
-
-    print("Calculating bias and accuracy...")
     ###RUN EVALUATION
-
     evaluation = evaluation_metrics(data, args.output_path, args.dist_name)
-
-    print(evaluation)
-
-    print("Test submission was successful")
+    logging.info("Results have been saved in {}".format(args.output_path))
 

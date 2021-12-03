@@ -41,26 +41,26 @@ To reproduce the performance reported in the paper: First, align images to 112x1
 #### RFW Face Alignment
 
 ~~~
-python face_align_tight.py --dataset_name RFW --data_dir datasets/test/data/African/ --output_dir datasets/test_aligned/African --landmark_file datasets/test/txts/African/African_lmk.txt 
+python face_alignment.py --dataset_name RFW --data_dir datasets/test/data/African/ --output_dir datasets/test_aligned/African --landmark_file datasets/test/txts/African/African_lmk.txt 
 ~~~ 
 
 
 #### VGGFace Face Alignment
 
 ~~~
-python face_align_tight.py --dataset_name VGGFace2 --data_dir datasets/VGGFace2/ --output_dir datasets/test_aligned/VGGFace2_aligned --landmark_file datasets/VGGFace2/bb_landmark/loose_bb_test.csv
+python face_alignment.py --dataset_name VGGFace2 --data_dir datasets/VGGFace2/ --output_dir datasets/test_aligned/VGGFace2_aligned --landmark_file datasets/VGGFace2/bb_landmark/loose_bb_test.csv
 ~~~ 
 
 #### Attribute-based Face Verification:
 
 ~~~
-python face_verification_mxnet.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/AttributePairs/setup1/skintype_type1_6000.csv --batch_size 32
+python face_atribute_verification.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/AttributePairs/setup1/skintype_type1_6000.csv --batch_size 32
 ~~~
 
 #### Cross Attribute-based Face Verification:
 
 ~~~
-python cross_atribute_verification.py --input_predictions test_assets/AttributeCrossPairs/skintype_type2.csv --dist_name 'vgg_dist' --output_path test_assets/AttributeCrossPairs
+python face_cross_atribute_verification.py --input_predictions test_assets/AttributeCrossPairs/skintype_type2.csv --dist_name 'vgg_dist' --output_path test_assets/AttributeCrossPairs
 ~~~
 
 
@@ -69,11 +69,11 @@ python cross_atribute_verification.py --input_predictions test_assets/AttributeC
 
 
 python face_verification_mxnet.py --data_dir datasets/test_aligned/ --model_dir models/setup1_model/model --pair_file test_assets/SubgroupPairs/meta_skin-0_lips-big_eye-other_nose-narrow_hairtype-straight_00102_20k_selected.csv --batch_size 32 --> 
-
+<!-- 
 #### Face identification test:
 ~~~
 python face_identification.py --data_dir  path/to/vgg/aligned/ --model_dir ./model/model.ckpt --img_list_file AttributeLabels/test_list.txt 
-~~~
+~~~ -->
 
 The distribution of race-relavent phenotype attributes of [RFW](https://github.com/seymayucer/RacialPhenotypesFREvaluation/blob/main/figures/rfw-phenotype-dist.pdf) and [VGGFace2 test](https://github.com/seymayucer/RacialPhenotypesFREvaluation/blob/main/figures/vggtest-phenotype-dist.pdf) datasets.
 
